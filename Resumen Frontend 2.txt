@@ -1,0 +1,231 @@
+
+C1A - Bienvenida - 17 de octubre - Origen de JavaScript
+
+
+HTML: Estructura
+CSS: Estilo
+JS: Funcionalidad
+
++----------------------------------+
+| 1990 - Guerra de los Navegadores | Netscape Vs Microsoft
++----------------------------------+
+
+	+---------+
+	| Nescape | 80% Mercado de los navegadores
+	+---------+
+
+	1995 - Brendan Eich (contratado pro Nescape) crear en 10 dias un lenguaje mas sencillo que java "Mocha"
+
+		+-------+
+		| Mocha |
+		+-------+
+			Sintaxis de Java
+			Finciones de primera clase como Scheme
+			Tipos dinamicos como Lisp
+			Prototipos como Self
+
+			Macha se lanza al mercardo como "LiveScript"
+
+			Marketing: Como Java era tendencia deciden renombrarlo "JavaScript"
+
+	+-------------------------+
+	| Historioa de JavaScript |
+	+-------------------------+
+		1997 - JavaScript se estandariza para evitar la competencia
+		ECMA: Define el lenguaje y los denomincan "ECMAScript"
+		1998 - ECMAScript 3 (Version estnadarizada con nuevas funciones)
+		2006 - Nace libreria jQuery 
+		2008 - Motor V8 para JavaScript y Google Chrome
+		2009 - Nace Node.js - Entorno que permite ejecutar JavaScript fuera del navegador en el lado del servidor 
+
++--------+
+| Repaso |
++--------+
+	+---------------------------+
+	| VARAIBLES SEGUN SU AMBITO |
+	+---------------------------+
+
+		|---------------------------------------------------------------------------------> VAR
+		Declarar una variable global o de ambito de una funcion
+
+			var varGlobal = "1111111"; // Valor Incial
+				function name() { 
+				|---------------------------------------------> AMBITO DE FUNCION
+				console.log(varGlobal); // 1111111 
+					if (condicion){
+					|---------------------------------------------> AMBITO DE BLOQUE
+						var varFuncion = "AAAAAAA";
+						condole.log(varGlobal); // 1111111
+						varFuncion = "BBBBBBB";
+					}
+				console.log(varFuncion); // "BBBBBBB"
+				}
+			console.log(varGlobal); // 1111111
+			console.log(varFuncion); // ERROR variable no declarada (fuera de contexto "if")
+
+
+		|---------------------------------------------------------------------------------> LET
+		Declara una variable en el ambito de bloque
+
+			let varGlobal = "1111111"; // Valor Incial
+				function name(){
+				|---------------------------------------------> AMBITO DE FUNCION
+				console.log(varGlobal); // 1111111
+					if(condicion){
+					|---------------------------------------------> AMBITO DE BLOQUE
+						let varFuncion = "AAAAAAA";
+						consol.log(varGlobal); // 1111111 
+						varGlobal = "2222222"; // MODIFICA - el valor de la variable
+					}
+				console.log(varFuncion); // ERROR - No declarada (fuera de cambito "if")
+				}
+			console.log(varGlobal); // 2222222
+			console.log(varFuncion); // ERROR variable no declarada (fuera de contexto "if")
+
+
+		|---------------------------------------------------------------------------------> CONST
+		Declara una constante en el ambito de un bloque
+
+			const varGlobal = "1111111"; // Valor Incial
+				function name(){
+				|---------------------------------------------> AMBITO DE FUNCION
+				console.log(varGlobal); // 1111111
+					|---------------------------------------------> AMBITO DE BLOQUE
+					if(condicion){
+						const varFuncion = "AAAAAAA";
+						console.log(varGlobal); // 1111111
+						varGlobal = "BBBBBBB";  // ERROR - Las variables const NO SE PUEDEN MODIFICAR
+					}
+				console.log(varFuncion); // ERROR - No declarada (fuera de cambito "if")
+				}
+			console.log(varGloabal); // 1111111
+			console.log(varFuncion); // ERROR variable no declarada (fuera de contexto "if")
+
+
+
++-------+
+| TIPOS |
++-------+
+
+	let myVariable = "Hello wold"; ------------------------------> String
+	let myVariable1 = 22; ---------------------------------------> number
+	let myVariable2 = false; ------------------------------------> boolean
+	let myVariable3; --------------------------------------------> undefined
+	let myVariable4 = "{ nombre: "mi nombre"}; ------------------> objetolet
+	myVariable5 = null; -----------------------------------------> tipo de objeto especial
+	myVariable6 = function(){let doSomething;} ------------------> funcion
+
+	Se pueden comprobar estos tipos mediante el uso de type0f typeOf myVariable // number
+
++------------------------+
+| ESTRUCTURAS DE CONTROL |
++------------------------+
+
+	+----+
+	| if | Permite ejecutar un bloque solo si se cumple una condicion dada
+	+----+
+		if (condicion){
+			code
+		}
+
+	+---------+
+	| if else | Permite evaluar la condicion y ejecutar un bloque de codigo
+	+---------+
+
+		if (condicion){
+			code if false
+		} else {
+			code if true
+		}
+
+	+--------+
+	| Switch | Permite ejecutar diferentes acciones dependiendo del valor de una variable
+	+--------+
+
+		switch (variable){
+			case 1:
+				code if variable == 1
+			breack;
+
+			case 2:
+				code if variable ==2;
+			breack;
+
+			default:
+				ejecuta si no se cumplen las variables anteriores
+			breack;
+
++--------+
+| Bucles |
++--------+
+	+-----+
+	| For | Ejecuta repetitivamente un bloque de codigo
+	+-----+
+		
+		let n = 4;
+		for(var i=0; i<n; i++){
+			// codigo ejecuta n veces [4]
+		}
+
+	+-------+
+	| While | Ejecuta si condicion sea verdadera
+	+-------+
+
+		let n = 1;
+		while(n<3){
+			codigo
+		}
+
+	+----------+
+	| Do while | Ejecuta al menos una vez y se evalua la condicion al final de cada ejecucion
+	+----------+
+	
+		do{
+			codigo
+		}while (n<3);
+
+
+
+C1A - Bienvenida - 17 de octubre - DevTools: Consola
+
++-----------------------+
+| Devtiils - La consola |
++-----------------------+
+
+	1. Que es y para que sirbe la consola?
+		Herrameinta del navegador para tomar desiciones del proyecto al mismo tiempo que se ejecuta en chrome
+	
+
+	2. Abrir Consola
+		Windows y Linux	
+			a. Botond derecho + inspeccionar
+			b. F12
+
+
+		Mac
+			a. Cmd + Shift + J
+
+
+
+	3. Que podemos hacer con el navegador 
+		
+	QUEDE EN LA DIAPOSITIVA 8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
